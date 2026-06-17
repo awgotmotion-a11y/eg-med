@@ -68,7 +68,7 @@
       #mobile-menu {
         position: fixed; top: 72px; left: 0; right: 0; bottom: 0;
         background: #fff; z-index: 998; padding: 32px 5%;
-        display: flex; flex-direction: column; gap: 20px;
+        flex-direction: column; gap: 20px;
       }
       #mobile-menu.open { display: flex; }
       #mobile-menu a {
@@ -79,6 +79,21 @@
         background: var(--teal); color: #fff; border-radius: 8px;
         padding: 14px; text-align: center; border-bottom: none; margin-top: 8px;
       }
+      .mob-social {
+        display: flex; justify-content: space-between; align-items: center;
+        padding-bottom: 20px; border-bottom: 1px solid var(--gray-200);
+      }
+      .mob-social-btn {
+        display: flex; align-items: center; gap: 9px;
+        text-decoration: none; font-size: .88rem; font-weight: 700;
+        color: var(--navy); padding: 10px 16px;
+        border: 1.5px solid var(--gray-200); border-radius: 10px;
+        transition: border-color .2s, background .2s;
+        flex: 1; justify-content: center;
+      }
+      .mob-social-btn:first-child { margin-right: 10px; }
+      .mob-social-btn:hover { background: var(--gray-100); border-color: var(--gray-500); }
+      .mob-social-btn svg { width: 20px; height: 20px; flex-shrink: 0; }
     }
 
     /* ── HERO ── */
@@ -764,6 +779,60 @@
       .tab-items-cols { grid-template-columns: 1fr; }
     }
 
+    /* ── SOCIAL STRIP ── */
+    .social-strip {
+      background: var(--navy);
+      padding: 56px 5%;
+      text-align: center;
+    }
+    .social-strip .section-label { color: #8ac8f4; }
+    .social-strip h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.4rem, 3vw, 2rem);
+      color: #fff;
+      margin: 10px 0 8px;
+    }
+    .social-strip p {
+      color: rgba(255,255,255,.65);
+      font-size: .92rem;
+      margin-bottom: 32px;
+    }
+    .social-cards {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .social-card {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      background: rgba(255,255,255,.07);
+      border: 1px solid rgba(255,255,255,.13);
+      border-radius: var(--radius);
+      padding: 18px 28px;
+      text-decoration: none;
+      color: #fff;
+      font-weight: 600;
+      font-size: .95rem;
+      transition: background .2s, transform .18s, border-color .2s;
+      min-width: 220px;
+    }
+    .social-card:hover { background: rgba(255,255,255,.14); transform: translateY(-3px); border-color: rgba(255,255,255,.28); }
+    .social-icon {
+      width: 46px; height: 46px; border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .social-icon svg { width: 24px; height: 24px; fill: #fff; }
+    .social-icon.facebook { background: #1877f2; }
+    .social-icon.instagram { background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285aeb 90%); }
+    .social-card-text { text-align: left; }
+    .social-card-text span { display: block; font-size: .75rem; color: rgba(255,255,255,.55); font-weight: 400; margin-top: 2px; }
+    @media (max-width: 520px) {
+      .social-card { min-width: 0; width: 100%; }
+    }
+
     /* ── PHOTO GALLERY SECTION ── */
     .photo-section {
       padding: 80px 5%;
@@ -807,6 +876,148 @@
       .photo-card-main { grid-row: auto; }
       .photo-card { min-height: 220px; }
     }
+
+    /* ── REVIEWS CAROUSEL ── */
+    .reviews-section {
+      background: linear-gradient(145deg, #07192e 0%, #0a2540 45%, #0d3355 100%);
+      position: relative;
+      overflow: hidden;
+    }
+    .reviews-section::before {
+      content: '';
+      position: absolute;
+      top: -140px; right: -140px;
+      width: 480px; height: 480px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(240,165,0,.10) 0%, transparent 68%);
+      pointer-events: none;
+    }
+    .reviews-section::after {
+      content: '';
+      position: absolute;
+      bottom: -100px; left: -80px;
+      width: 320px; height: 320px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(15,101,163,.20) 0%, transparent 68%);
+      pointer-events: none;
+    }
+    .reviews-section .section-label { color: var(--accent); }
+    .reviews-section .section-title { color: #fff; }
+    .reviews-section .section-sub { color: rgba(255,255,255,.62); margin: 0 auto 52px; text-align: center; }
+    .reviews-header { text-align: center; }
+
+    .rev-overall {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.12);
+      border-radius: 100px; padding: 8px 20px; margin-bottom: 28px;
+    }
+    .rev-overall-stars { position: relative; display: inline-block; font-size: 1rem; line-height: 1; letter-spacing: 2px; }
+    .rev-overall-stars .stars-outer { color: rgba(255,255,255,.22); }
+    .rev-overall-stars .stars-inner { position: absolute; top: 0; left: 0; white-space: nowrap; overflow: hidden; width: 92%; color: var(--accent); }
+    .rev-overall-text { font-size: .82rem; color: rgba(255,255,255,.70); font-weight: 500; }
+    .rev-overall-text strong { color: #fff; }
+
+    .reviews-carousel-wrap {
+      display: flex; align-items: center; gap: 18px;
+      position: relative; z-index: 1;
+    }
+    .reviews-track-outer {
+      overflow: hidden; flex: 1; border-radius: 20px;
+    }
+    .reviews-track {
+      display: flex;
+      transition: transform .52s cubic-bezier(.4,0,.2,1);
+      will-change: transform;
+    }
+    .review-card {
+      flex: 0 0 100%;
+      background: rgba(255,255,255,.065);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255,255,255,.11);
+      border-radius: 20px;
+      padding: 52px 56px 44px;
+      text-align: left;
+      position: relative;
+      overflow: hidden;
+    }
+    .review-card::before {
+      content: '\201C';
+      position: absolute; top: 16px; left: 36px;
+      font-size: 9rem; line-height: 1;
+      font-family: 'Playfair Display', serif;
+      color: var(--accent); opacity: .18;
+      pointer-events: none; user-select: none;
+    }
+    .review-stars {
+      display: flex; gap: 5px; margin-bottom: 22px;
+    }
+    .review-stars span { color: var(--accent); font-size: 1.25rem; }
+    .review-text {
+      font-size: 1.08rem; line-height: 1.78;
+      color: rgba(255,255,255,.88);
+      font-style: italic;
+      margin-bottom: 32px;
+      position: relative; z-index: 1;
+      max-width: 700px;
+    }
+    .review-author {
+      display: flex; align-items: center; gap: 14px;
+    }
+    .review-avatar {
+      width: 50px; height: 50px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 700; font-size: 1.1rem; color: #fff; flex-shrink: 0;
+    }
+    .review-name { font-weight: 700; color: #fff; font-size: .97rem; }
+    .review-meta { font-size: .78rem; color: rgba(255,255,255,.48); margin-top: 3px; }
+    .review-google-icon {
+      margin-left: auto; opacity: .4; display: flex; align-items: center;
+    }
+    .review-google-icon svg { width: 28px; height: 28px; }
+
+    .rev-arrow {
+      width: 54px; height: 54px; border-radius: 50%; flex-shrink: 0;
+      border: 1.5px solid rgba(255,255,255,.18);
+      background: rgba(255,255,255,.07);
+      color: #fff; display: flex; align-items: center; justify-content: center;
+      cursor: pointer; transition: background .22s, border-color .22s, transform .15s;
+      z-index: 2;
+    }
+    .rev-arrow svg { width: 20px; height: 20px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+    .rev-arrow:hover { background: var(--teal); border-color: var(--teal); transform: scale(1.09); }
+    .rev-arrow:active { transform: scale(.97); }
+
+    .rev-footer { text-align: center; margin-top: 36px; }
+    .rev-dots { display: inline-flex; align-items: center; gap: 8px; margin-bottom: 28px; }
+    .rev-dot {
+      width: 8px; height: 8px; border-radius: 4px;
+      border: none; background: rgba(255,255,255,.22);
+      cursor: pointer; padding: 0;
+      transition: background .25s, width .3s cubic-bezier(.4,0,.2,1);
+    }
+    .rev-dot.active { background: var(--accent); width: 26px; }
+
+    .rev-google-link {
+      display: inline-flex; align-items: center; gap: 8px;
+      color: rgba(255,255,255,.42); font-size: .8rem; text-decoration: none;
+      border: 1px solid rgba(255,255,255,.12); border-radius: 100px;
+      padding: 8px 18px; transition: color .2s, border-color .2s, background .2s;
+    }
+    .rev-google-link:hover { color: rgba(255,255,255,.85); border-color: rgba(255,255,255,.3); background: rgba(255,255,255,.06); }
+    .rev-google-link svg { width: 16px; height: 16px; }
+
+    @media (max-width: 700px) {
+      .review-card { padding: 36px 28px 32px; }
+      .review-card::before { font-size: 6rem; top: 10px; left: 20px; }
+      .review-text { font-size: .95rem; }
+      .rev-arrow { width: 42px; height: 42px; }
+      .reviews-carousel-wrap { gap: 10px; }
+    }
+    @media (max-width: 480px) {
+      .rev-arrow { display: none; }
+      .reviews-carousel-wrap { gap: 0; }
+    }
   </style>
 </head>
 <body>
@@ -838,6 +1049,7 @@
     <li><a href="#pricing">Pricing</a></li>
     <li><a href="#team">Our Team</a></li>
     <li><a href="#dispensary">Supplements</a></li>
+    <li><a href="#reviews">Reviews</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
   <a class="nav-cta" href="#contact">Walk-Ins Welcome</a>
@@ -848,6 +1060,16 @@
 
 <!-- MOBILE MENU -->
 <div id="mobile-menu">
+  <div class="mob-social">
+    <a href="https://www.facebook.com/share/1BobjFMTT6/?mibextid=wwXIfr" target="_blank" rel="noopener" class="mob-social-btn">
+      <svg viewBox="0 0 24 24" fill="#1877f2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+      Facebook
+    </a>
+    <a href="https://www.instagram.com/eaugallie.medicalcenter/" target="_blank" rel="noopener" class="mob-social-btn">
+      <svg viewBox="0 0 24 24"><defs><linearGradient id="ig-g" x1="0%" y1="100%" x2="100%" y2="0%"><stop offset="0%" stop-color="#f09433"/><stop offset="25%" stop-color="#e6683c"/><stop offset="50%" stop-color="#dc2743"/><stop offset="75%" stop-color="#cc2366"/><stop offset="100%" stop-color="#bc1888"/></linearGradient></defs><rect x="2" y="2" width="20" height="20" rx="5" ry="5" fill="url(#ig-g)"/><circle cx="12" cy="12" r="4" fill="none" stroke="#fff" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1" fill="#fff"/></svg>
+      Instagram
+    </a>
+  </div>
   <a href="#services"    onclick="closeMobile()">Services</a>
   <a href="#pricing"     onclick="closeMobile()">Pricing</a>
   <a href="#team"        onclick="closeMobile()">Our Team</a>
@@ -1345,14 +1567,13 @@
           <div class="role">Aesthetics Provider</div>
           <p>Natalie specializes exclusively in aesthetic procedures at our clinic. She brings a careful, artistic approach to every treatment and is passionate about helping patients feel confident.</p>
           <p style="font-size:.85rem; color:var(--gray-700); margin-top:10px; line-height:1.65;"><strong>Muscle Relaxers:</strong> Xeomin ($10/unit), Letybo ($8/unit), Botox or Dysport ($12/unit)<br><strong>Fillers &amp; Volumizers:</strong> Radiesse ($550/syringe), Restylane Kysse ($500/syringe), Versa ($425/syringe)</p>
-          <p style="font-size:.82rem; color:var(--teal); font-weight:600; margin-top:10px;">Aesthetics Appointments: <a href="tel:+13213617739" style="color:var(--teal);">(321) 361-7739</a></p>
-          <a href="tel:+13213617739" class="team-book">Call Natalie to Schedule Aesthetics</a>
+          
         </div>
       </div>
 
       <div class="team-card">
         <div class="team-avatar">
-          <svg viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+          <img src="PHOTO-2026-06-16-17-20-48.JPG" alt="Kim Wilson" style="width:100%;height:100%;object-fit:cover;">
         </div>
         <div class="team-info">
           <h3>Kim Wilson</h3>
@@ -1392,7 +1613,7 @@
     <div class="dispensary-text">
       <span class="section-label">Alternate Health</span>
       <h2>Premium Supplements,<br>Delivered to Your Door</h2>
-      <p>Dr. Wolfington has curated a trusted virtual dispensary through <strong>Designs for Health</strong> — a professional-grade supplement line used by clinicians nationwide. Get the same high-quality products our clinic recommends, shipped straight to you.</p>
+      <p>Dr. Wolfington has curated a trusted virtual dispensary through <strong>Designs for Health;</strong> a professional-grade supplement line used by clinicians nationwide. Get the same high-quality products our clinic recommends, shipped straight to your door.</p>
       <div class="dispensary-badge">
         <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 14H4v-6h16v6zm0-10H4V6h16v2z"/></svg>
         Free shipping on orders over $49
@@ -1405,6 +1626,153 @@
       <p>Physician-formulated, rigorously tested, professional-grade supplements.</p>
       <span class="shipping-pill">FREE SHIPPING OVER $49</span>
     </div>
+  </div>
+</section>
+
+<!-- REVIEWS CAROUSEL -->
+<section class="section reviews-section" id="reviews">
+  <div class="section-inner">
+    <div class="reviews-header">
+      <span class="section-label">Patient Reviews</span>
+      <h2 class="section-title">Hear From Our Community</h2>
+      <div class="rev-overall">
+        <div class="rev-overall-stars">
+          <span class="stars-outer">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+          <span class="stars-inner">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+        </div>
+        <span class="rev-overall-text"><strong>4.6</strong> &nbsp;·&nbsp; 180+ Google Reviews</span>
+      </div>
+      <p class="section-sub">Real words from real patients — shared on Google.</p>
+    </div>
+
+    <div class="reviews-carousel-wrap">
+      <button class="rev-arrow" id="revPrev" aria-label="Previous review">
+        <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+      </button>
+
+      <div class="reviews-track-outer">
+        <div class="reviews-track" id="reviewsTrack">
+
+          <!-- Review 1 -->
+          <div class="review-card">
+            <div class="review-stars"><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span></div>
+            <p class="review-text">"They are so friendly and helpful, they made me feel so at home and comfortable. I would highly recommend Eau Gallie Walk-In Clinic to any friend or family. Dr. Wolfington is a great guy who treats you like family. And the staff is always so nice!"</p>
+            <div class="review-author">
+              <div class="review-avatar" style="background:linear-gradient(135deg,#0f65a3,#0a4875);">Z</div>
+              <div>
+                <div class="review-name">Zach Richard</div>
+                <div class="review-meta">Google Review</div>
+              </div>
+              <div class="review-google-icon">
+                <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><path fill="#fff" d="M43.6 20.1H42V20H24v8h11.3C33.7 32.6 29.3 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.8 1.1 7.9 3l5.7-5.7C34.5 6.7 29.5 4 24 4 12.9 4 4 12.9 4 24s8.9 20 20 20 20-8.9 20-20c0-1.3-.1-2.6-.4-3.9z"/><path fill="#fff" d="M6.3 14.7l6.6 4.8C14.5 16.1 18.9 12 24 12c3.1 0 5.8 1.1 7.9 3l5.7-5.7C34.5 6.7 29.5 4 24 4 16.2 4 9.5 8.3 6.3 14.7z" opacity=".5"/></svg>
+              </div>
+            </div>
+          </div>
+
+          <!-- Review 2 -->
+          <div class="review-card">
+            <div class="review-stars"><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span></div>
+            <p class="review-text">"Absolutely Amazing!!! They have always bent over backwards to help me. Very professional and the doctor actually listens and cares. And I'm talking about the new staff and doctor. I know we all miss Dr. Magri but trust me, you won't be disappointed going here now."</p>
+            <div class="review-author">
+              <div class="review-avatar" style="background:linear-gradient(135deg,#1a7a3c,#0d5c2e);">S</div>
+              <div>
+                <div class="review-name">Shawn Vanderpool</div>
+                <div class="review-meta">Google Review</div>
+              </div>
+              <div class="review-google-icon">
+                <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><path fill="#fff" d="M43.6 20.1H42V20H24v8h11.3C33.7 32.6 29.3 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.8 1.1 7.9 3l5.7-5.7C34.5 6.7 29.5 4 24 4 12.9 4 4 12.9 4 24s8.9 20 20 20 20-8.9 20-20c0-1.3-.1-2.6-.4-3.9z"/><path fill="#fff" d="M6.3 14.7l6.6 4.8C14.5 16.1 18.9 12 24 12c3.1 0 5.8 1.1 7.9 3l5.7-5.7C34.5 6.7 29.5 4 24 4 16.2 4 9.5 8.3 6.3 14.7z" opacity=".5"/></svg>
+              </div>
+            </div>
+          </div>
+
+          <!-- Review 3 -->
+          <div class="review-card">
+            <div class="review-stars"><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span></div>
+            <p class="review-text">"The price of visit is very economical and the front desk medical secretary was cordial — she even offered me a discount on what I thought was a very fair price to start with. I was quickly admitted to a room. Dr. Wolfington took time to listen to my concern and diagnosed my conditions. I rate Eau Gallie Medical Center staff and doctor's treatment A+."</p>
+            <div class="review-author">
+              <div class="review-avatar" style="background:linear-gradient(135deg,#c0392b,#922b21);">J</div>
+              <div>
+                <div class="review-name">Jon Monk</div>
+                <div class="review-meta">Google Review</div>
+              </div>
+              <div class="review-google-icon">
+                <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><path fill="#fff" d="M43.6 20.1H42V20H24v8h11.3C33.7 32.6 29.3 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.8 1.1 7.9 3l5.7-5.7C34.5 6.7 29.5 4 24 4 12.9 4 4 12.9 4 24s8.9 20 20 20 20-8.9 20-20c0-1.3-.1-2.6-.4-3.9z"/><path fill="#fff" d="M6.3 14.7l6.6 4.8C14.5 16.1 18.9 12 24 12c3.1 0 5.8 1.1 7.9 3l5.7-5.7C34.5 6.7 29.5 4 24 4 16.2 4 9.5 8.3 6.3 14.7z" opacity=".5"/></svg>
+              </div>
+            </div>
+          </div>
+
+          <!-- Review 4 -->
+          <div class="review-card">
+            <div class="review-stars"><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span></div>
+            <p class="review-text">"Unique — the receptionist/nurse was very friendly. Dr. Mike listened and discussed all my problems and took the time. Very professional. I highly recommend this medical center."</p>
+            <div class="review-author">
+              <div class="review-avatar" style="background:linear-gradient(135deg,#8e44ad,#6c3483);">M</div>
+              <div>
+                <div class="review-name">Mary Padilla</div>
+                <div class="review-meta">Google Review</div>
+              </div>
+              <div class="review-google-icon">
+                <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><path fill="#fff" d="M43.6 20.1H42V20H24v8h11.3C33.7 32.6 29.3 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.8 1.1 7.9 3l5.7-5.7C34.5 6.7 29.5 4 24 4 12.9 4 4 12.9 4 24s8.9 20 20 20 20-8.9 20-20c0-1.3-.1-2.6-.4-3.9z"/><path fill="#fff" d="M6.3 14.7l6.6 4.8C14.5 16.1 18.9 12 24 12c3.1 0 5.8 1.1 7.9 3l5.7-5.7C34.5 6.7 29.5 4 24 4 16.2 4 9.5 8.3 6.3 14.7z" opacity=".5"/></svg>
+              </div>
+            </div>
+          </div>
+
+          <!-- Review 5 -->
+          <div class="review-card">
+            <div class="review-stars"><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span></div>
+            <p class="review-text">"This place is exceptional — from the cleanliness to the absolute sweetest nurse and doctor. I highly recommend this clinic. The doctor truly cares about your health."</p>
+            <div class="review-author">
+              <div class="review-avatar" style="background:linear-gradient(135deg,#d35400,#a04000);">D</div>
+              <div>
+                <div class="review-name">Devin Hopson</div>
+                <div class="review-meta">Google Review</div>
+              </div>
+              <div class="review-google-icon">
+                <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><path fill="#fff" d="M43.6 20.1H42V20H24v8h11.3C33.7 32.6 29.3 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.8 1.1 7.9 3l5.7-5.7C34.5 6.7 29.5 4 24 4 12.9 4 4 12.9 4 24s8.9 20 20 20 20-8.9 20-20c0-1.3-.1-2.6-.4-3.9z"/><path fill="#fff" d="M6.3 14.7l6.6 4.8C14.5 16.1 18.9 12 24 12c3.1 0 5.8 1.1 7.9 3l5.7-5.7C34.5 6.7 29.5 4 24 4 16.2 4 9.5 8.3 6.3 14.7z" opacity=".5"/></svg>
+              </div>
+            </div>
+          </div>
+
+          <!-- Review 6 -->
+          <div class="review-card">
+            <div class="review-stars"><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span></div>
+            <p class="review-text">"My experience in this office was 10 stars but I'm not given that option. I went in so incredibly sick with the flu — the kindness and comfort I was shown will always be remembered. The next day I went to Holmes Hospital and was so disappointed with the level of service and lack of bedside manner. Not to mention the visit there was 9x the cost of Eau Gallie Medical Center. Price point and service: A+++. Highly recommended!!"</p>
+            <div class="review-author">
+              <div class="review-avatar" style="background:linear-gradient(135deg,#0f65a3,#0a3d6b);">C</div>
+              <div>
+                <div class="review-name">Claire Uttariello</div>
+                <div class="review-meta">Google Review</div>
+              </div>
+              <div class="review-google-icon">
+                <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><path fill="#fff" d="M43.6 20.1H42V20H24v8h11.3C33.7 32.6 29.3 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.8 1.1 7.9 3l5.7-5.7C34.5 6.7 29.5 4 24 4 12.9 4 4 12.9 4 24s8.9 20 20 20 20-8.9 20-20c0-1.3-.1-2.6-.4-3.9z"/><path fill="#fff" d="M6.3 14.7l6.6 4.8C14.5 16.1 18.9 12 24 12c3.1 0 5.8 1.1 7.9 3l5.7-5.7C34.5 6.7 29.5 4 24 4 16.2 4 9.5 8.3 6.3 14.7z" opacity=".5"/></svg>
+              </div>
+            </div>
+          </div>
+
+        </div><!-- /reviews-track -->
+      </div><!-- /reviews-track-outer -->
+
+      <button class="rev-arrow" id="revNext" aria-label="Next review">
+        <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+      </button>
+    </div><!-- /reviews-carousel-wrap -->
+
+    <div class="rev-footer">
+      <div class="rev-dots" id="revDots">
+        <button class="rev-dot active" aria-label="Review 1"></button>
+        <button class="rev-dot" aria-label="Review 2"></button>
+        <button class="rev-dot" aria-label="Review 3"></button>
+        <button class="rev-dot" aria-label="Review 4"></button>
+        <button class="rev-dot" aria-label="Review 5"></button>
+        <button class="rev-dot" aria-label="Review 6"></button>
+      </div>
+      <br>
+      <a href="https://www.google.com/maps/place/Eau+Gallie+Medical+Center/@28.129832,-80.626493,16z" target="_blank" rel="noopener noreferrer" class="rev-google-link">
+        <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><path fill="currentColor" d="M43.6 20.1H42V20H24v8h11.3C33.7 32.6 29.3 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.8 1.1 7.9 3l5.7-5.7C34.5 6.7 29.5 4 24 4 12.9 4 4 12.9 4 24s8.9 20 20 20 20-8.9 20-20c0-1.3-.1-2.6-.4-3.9z"/></svg>
+        See all reviews on Google Maps
+      </a>
+    </div>
+
   </div>
 </section>
 
@@ -1431,38 +1799,35 @@
           <h4>Location</h4>
           <address>
             Eau Gallie Walk-In Clinic<br>
-            Eau Gallie, FL<br>
-            (Brevard County)
+            1403 Highland Avenue<br>
+            Melbourne, FL 32935
           </address>
         </div>
         <div class="info-card">
           <h4>Clinic Hours</h4>
           <p>
-            Monday – Friday: 8am – 6pm<br>
-            Saturday: 9am – 2pm<br>
-            Sunday: Closed<br>
+            Monday, Wednesday, Friday: 10am – 4pm<br>
+            Tuesday + Thursday: 1pm – 6pm<br>
+            Saturday + Sunday: Closed<br>
             <em style="font-size:.8rem; color: var(--teal);">Walk right in — no appointment needed.</em>
           </p>
         </div>
         <div class="info-card">
           <h4>Phone</h4>
           <p>
-            <a href="tel:+13217511414">Call or Text: (321) 751-1414</a><br><br>
-            Our front desk coordinator <strong>Kim Wilson</strong> will take your call and help arrange your appointment. Dr. Wolfington and staff are happy to help.
+            <a href="tel:+13217511414">Call: (321) 751-1414</a><br>
+            <a href="mailto:eaugalliewalkinclinic@gmail.com">eaugalliewalkinclinic@gmail.com</a><br><br>
+            Our front desk coordinator <strong>Kim Wilson</strong> will take your call and help arrange your appointment. Dr. Wolfington and staff are always happy to help.
           </p>
         </div>
-        <div class="info-card" style="border-left:3px solid #f0a500;">
-          <h4 style="color:#c27a00;">Aesthetics Appointments — Natalie Best</h4>
-          <p>For aesthetic procedure appointments with Natalie, call or text her directly. Availability is limited but she loves hearing from new patients.</p>
-          <p style="margin-top:10px;"><a href="tel:+13213617739" style="color:var(--teal);font-weight:700;">(321) 361-7739</a></p>
-        </div>
+
       </div>
 
       <!-- Reach-out form for Dr. Wolfington -->
       <div style="flex:1.3;min-width:300px;">
         <span class="section-label">Optional</span>
-        <h2 class="section-title" style="font-size:1.5rem;margin-bottom:8px;">Send a Message to Dr. Wolfington</h2>
-        <p style="font-size:.88rem;color:var(--gray-500);line-height:1.65;margin-bottom:24px;">Prefer to reach out ahead of time? Fill in your details and reason for visit and we'll get back to you. <strong>Walk-ins are still always preferred</strong> — this form is simply for those who'd like to connect first.</p>
+        <h2 class="section-title" style="font-size:1.5rem;margin-bottom:8px;">Send a Message to the Team.</h2>
+        <p style="font-size:.88rem;color:var(--gray-500);line-height:1.65;margin-bottom:24px;">Prefer to reach out ahead of time? Fill out your details and reason for visit, and we'll get back to you. <strong>Walk-ins are still always preferred,</strong> this form is simply for those who'd like to connect first.</p>
         <form class="booking-form" onsubmit="handleBooking(event)" style="background:#fff;">
           <input type="hidden" name="access_key" value="83e41cdf-4d67-46c6-8f3f-75e5fdeb9268" />
           <input type="hidden" name="subject" value="New message from Eau Gallie Walk-In Clinic website" />
@@ -1513,6 +1878,33 @@
   </div>
 </section>
 
+<!-- SOCIAL MEDIA -->
+<section class="social-strip">
+  <span class="section-label">Follow Us</span>
+  <h2>Stay Connected</h2>
+  <p>Follow us on social media for health tips, clinic updates, and more.</p>
+  <div class="social-cards">
+    <a href="https://www.facebook.com/share/1BobjFMTT6/?mibextid=wwXIfr" target="_blank" rel="noopener" class="social-card">
+      <div class="social-icon facebook">
+        <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+      </div>
+      <div class="social-card-text">
+        Facebook
+        <span>Eau Gallie Walk-In Clinic</span>
+      </div>
+    </a>
+    <a href="https://www.instagram.com/eaugallie.medicalcenter/" target="_blank" rel="noopener" class="social-card">
+      <div class="social-icon instagram">
+        <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" fill="none" stroke="#fff" stroke-width="2"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg>
+      </div>
+      <div class="social-card-text">
+        Instagram
+        <span>@eaugallie.medicalcenter</span>
+      </div>
+    </a>
+  </div>
+</section>
+
 <!-- FOOTER -->
 <footer>
   <div class="footer-grid">
@@ -1526,7 +1918,15 @@
           <span>Primary &amp; Urgent Care</span>
         </div>
       </a>
-      <p>Compassionate, affordable healthcare for every member of your family — right here in Eau Gallie. No appointment needed. No judgment. Just care.</p>
+      <p>Compassionate, affordable healthcare for every member of your family, right here in Eau Gallie. No appointment needed. No judgment. Just care.</p>
+      <div style="display:flex;gap:10px;margin-top:18px;">
+        <a href="https://www.facebook.com/share/1BobjFMTT6/?mibextid=wwXIfr" target="_blank" rel="noopener" aria-label="Facebook" style="width:36px;height:36px;border-radius:8px;background:#1877f2;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:opacity .2s;" onmouseover="this.style.opacity='.8'" onmouseout="this.style.opacity='1'">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="#fff"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+        </a>
+        <a href="https://www.instagram.com/eaugallie.medicalcenter/" target="_blank" rel="noopener" aria-label="Instagram" style="width:36px;height:36px;border-radius:8px;background:radial-gradient(circle at 30% 107%,#fdf497 0%,#fdf497 5%,#fd5949 45%,#d6249f 60%,#285aeb 90%);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:opacity .2s;" onmouseover="this.style.opacity='.8'" onmouseout="this.style.opacity='1'">
+          <svg viewBox="0 0 24 24" width="18" height="18"><rect x="2" y="2" width="20" height="20" rx="5" ry="5" fill="none" stroke="#fff" stroke-width="2"/><circle cx="12" cy="12" r="4" fill="none" stroke="#fff" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1" fill="#fff"/></svg>
+        </a>
+      </div>
     </div>
     <div class="footer-col">
       <h5>Services</h5>
@@ -1956,6 +2356,48 @@
       setTimeout(() => toast.classList.remove('show', 'error'), 5000);
     }
   }
+
+  // ── Reviews Carousel ──
+  (function () {
+    const track = document.getElementById('reviewsTrack');
+    if (!track) return;
+    const dots = document.querySelectorAll('.rev-dot');
+    const cards = track.querySelectorAll('.review-card');
+    const total = cards.length;
+    let current = 0;
+    let autoTimer;
+
+    function goTo(idx) {
+      current = ((idx % total) + total) % total;
+      track.style.transform = 'translateX(-' + (current * 100) + '%)';
+      dots.forEach(function (d, i) { d.classList.toggle('active', i === current); });
+    }
+
+    document.getElementById('revPrev').addEventListener('click', function () { goTo(current - 1); resetAuto(); });
+    document.getElementById('revNext').addEventListener('click', function () { goTo(current + 1); resetAuto(); });
+    dots.forEach(function (d, i) { d.addEventListener('click', function () { goTo(i); resetAuto(); }); });
+
+    function resetAuto() {
+      clearInterval(autoTimer);
+      autoTimer = setInterval(function () { goTo(current + 1); }, 5500);
+    }
+
+    var wrap = track.closest('.reviews-carousel-wrap');
+    if (wrap) {
+      wrap.addEventListener('mouseenter', function () { clearInterval(autoTimer); });
+      wrap.addEventListener('mouseleave', resetAuto);
+    }
+
+    var touchStartX = 0;
+    track.addEventListener('touchstart', function (e) { touchStartX = e.touches[0].clientX; }, { passive: true });
+    track.addEventListener('touchend', function (e) {
+      var diff = touchStartX - e.changedTouches[0].clientX;
+      if (Math.abs(diff) > 48) goTo(current + (diff > 0 ? 1 : -1));
+      resetAuto();
+    });
+
+    resetAuto();
+  }());
 </script>
 </body>
 </html>
