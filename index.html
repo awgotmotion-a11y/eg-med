@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Eau Gallie Walk-In Clinic | Primary Care & Urgent Care</title>
-  <meta name="description" content="Eau Gallie Walk-In Clinic offers primary care, urgent care, physicals, telemedicine, weight loss, aesthetics, and Suboxone treatment. Walk-ins always welcome." />
+  <title>Eau Gallie Medical Center | Primary Care & Urgent Care</title>
+  <meta name="description" content="Eau Gallie Medical Center offers primary care, urgent care, physicals, telemedicine, weight loss, aesthetics, and Suboxone treatment. Walk-ins always welcome." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet" />
@@ -424,6 +424,23 @@
 
     /* scrolled nav */
     .nav.scrolled { box-shadow: 0 4px 24px rgba(10,37,64,.14); }
+
+    /* ── CREDENTIAL BUTTON ── */
+    .cred-btn {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 15px; height: 15px; border-radius: 50%;
+      background: var(--gray-200); color: var(--gray-500);
+      font-size: .6rem; font-weight: 700; border: none; cursor: pointer;
+      vertical-align: middle; margin-left: 4px; flex-shrink: 0;
+      transition: background .2s, color .2s; font-family: inherit; line-height: 1;
+    }
+    .cred-btn:hover { background: var(--teal); color: #fff; }
+    .cred-sep {
+      color: var(--gray-200); font-weight: 300;
+      margin: 0 4px; font-size: 1em;
+    }
+    #cred-overlay .modal p { margin-bottom: 12px; }
+    #cred-overlay .modal p:last-child { margin-bottom: 0; }
 
     /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
        PROFESSIONAL POLISH
@@ -1040,7 +1057,7 @@
       </svg>
     </div>
     <div class="nav-logo-text">
-      <strong>Eau Gallie Walk-In Clinic</strong>
+      <strong>Eau Gallie Medical Center</strong>
       <span>Primary &amp; Urgent Care</span>
     </div>
   </a>
@@ -1251,7 +1268,7 @@
     <div class="suboxone-text">
       <span class="section-label">Medication-Assisted Treatment</span>
       <h2>Recovery is Brave.<br>We're Here to Help.</h2>
-      <p>At Eau Gallie Walk-In Clinic, we believe seeking treatment for opioid use disorder is one of the most courageous things a person can do. There is absolutely no shame here — only support.</p>
+      <p>At Eau Gallie Medical Center, we believe seeking treatment for opioid use disorder is one of the most courageous things a person can do. There is absolutely no shame here — only support.</p>
       <p>Suboxone (buprenorphine/naloxone) is a proven, FDA-approved treatment that reduces cravings and withdrawal symptoms so you can focus on living your life.</p>
       <ul class="suboxone-promise">
         <li>Judgment-free, confidential appointments</li>
@@ -1480,8 +1497,8 @@
           <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z"/></svg>
         </div>
         <div class="tab-info-body">
-          <h3>Aesthetics by Natalie Best</h3>
-          <p>All aesthetic procedures are performed by <strong>Natalie Best</strong>, our dedicated aesthetics provider. Natalie offers a warm, artistic, judgment-free approach — helping you look refreshed and feel like the best version of yourself. Call or text Natalie directly at <a href="tel:+13213617739" style="color:var(--teal);font-weight:700;">(321) 361-7739</a> to schedule.</p>
+          <h3>Aesthetics by Natalie Best, APRN-BC</h3>
+          <p>All aesthetic procedures are performed by <strong>Natalie Best, APRN-BC</strong> — an Advanced Practice Registered Nurse, Board Certified. As an APRN-BC, Natalie holds advanced clinical training and national board certification in her specialty, which means she can assess, treat, and administer aesthetic procedures at a medical level that goes well beyond what a typical spa or non-certified aesthetician can offer. She brings a warm, artistic, and judgment-free approach to every treatment — helping you look refreshed and feel like the best version of yourself. To schedule directly with Natalie, email her at <a href="mailto:nbestaprn25@gmail.com" style="color:var(--teal);font-weight:700;">nbestaprn25@gmail.com</a>.</p>
           <ul class="tab-info-items tab-items-cols">
             <li>Muscle relaxers (neuromodulators)</li>
             <li>Facial fillers &amp; volumizers</li>
@@ -1522,7 +1539,7 @@
           <div class="price-amount">$425</div>
         </div>
       </div>
-      <p class="price-note" style="margin-top:20px;">* To schedule an aesthetics appointment with Natalie Best, call or text <a href="tel:+13213617739" style="color:var(--teal);font-weight:700;">(321) 361-7739</a>. Number of units or syringes needed is determined at your consultation.</p>
+      <p class="price-note" style="margin-top:20px;">* To schedule an aesthetics appointment with Natalie Best, APRN-BC, email <a href="mailto:nbestaprn25@gmail.com" style="color:var(--teal);font-weight:700;">nbestaprn25@gmail.com</a>. Number of units or syringes needed is determined at your consultation.</p>
     </div>
 
     <p class="price-note">* Prices are self-pay rates. Additional fees may apply for ancillary services such as labs or imaging. Please call us with any questions.</p>
@@ -1551,9 +1568,9 @@
           <svg viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
         </div>
         <div class="team-info">
-          <h3>Dr. Michael Wolfington</h3>
+          <h3>Dr. Michael Wolfington <span class="cred-sep">|</span> DO <button class="cred-btn" onclick="openCred('do')" aria-label="What is a DO?">?</button></h3>
           <div class="role">Medical Director &amp; Physician</div>
-          <p>Dr. Wolfington leads Eau Gallie Walk-In Clinic and personally handles all primary care, urgent care, MAT, weight loss, peptide therapy, medical marijuana certifications, physicals, lab orders, and minor procedures. Simply walk in — no appointment needed.</p>
+          <p>Dr. Wolfington leads Eau Gallie Medical Center and personally handles all primary care, urgent care, MAT, weight loss, peptide therapy, medical marijuana certifications, physicals, lab orders, and minor procedures. Simply walk in — no appointment needed.</p>
           <a href="#contact" class="team-book">Hours &amp; Location &rarr;</a>
         </div>
       </div>
@@ -1563,7 +1580,7 @@
           <img src="IMG_0457.png" alt="Natalie Best" style="width:100%;height:100%;object-fit:cover;transform:scale(0.8);">
         </div>
         <div class="team-info">
-          <h3>Natalie Best</h3>
+          <h3>Natalie Best <span class="cred-sep">|</span> APRN-BC <button class="cred-btn" onclick="openCred('aprn')" aria-label="What is APRN-BC?">?</button></h3>
           <div class="role">Aesthetics Provider</div>
           <p>Natalie specializes exclusively in aesthetic procedures at our clinic. She brings a careful, artistic approach to every treatment and is passionate about helping patients feel confident.</p>
           <p style="font-size:.85rem; color:var(--gray-700); margin-top:10px; line-height:1.65;"><strong>Muscle Relaxers:</strong> Xeomin ($10/unit), Letybo ($8/unit), Botox or Dysport ($12/unit)<br><strong>Fillers &amp; Volumizers:</strong> Radiesse ($550/syringe), Restylane Kysse ($500/syringe), Versa ($425/syringe)</p>
@@ -1576,9 +1593,9 @@
           <img src="PHOTO-2026-06-16-17-20-48.JPG" alt="Kim Wilson" style="width:100%;height:100%;object-fit:cover;">
         </div>
         <div class="team-info">
-          <h3>Kim Wilson</h3>
+          <h3>Kim Wilson <span class="cred-sep">|</span> LPN <button class="cred-btn" onclick="openCred('lpn')" aria-label="What is LPN?">?</button></h3>
           <div class="role">Front Desk Coordinator</div>
-          <p>Kim is the first voice you'll hear when you call Eau Gallie Walk-In Clinic. She manages all incoming calls, coordinates appointments, and makes sure every patient feels welcomed and taken care of from the very first interaction. Whether you have a question about services, need to arrange a visit, or just aren't sure where to start — Kim will point you in the right direction and get you set up.</p>
+          <p>Kim is the first voice you'll hear when you call Eau Gallie Medical Center. She manages all incoming calls, coordinates appointments, and makes sure every patient feels welcomed and taken care of from the very first interaction. Whether you have a question about services, need to arrange a visit, or just aren't sure where to start — Kim will point you in the right direction and get you set up.</p>
           <a href="tel:+13217511414" class="team-book">Call Kim: (321) 751-1414</a>
         </div>
       </div>
@@ -1656,7 +1673,7 @@
           <!-- Review 1 -->
           <div class="review-card">
             <div class="review-stars"><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span></div>
-            <p class="review-text">"They are so friendly and helpful, they made me feel so at home and comfortable. I would highly recommend Eau Gallie Walk-In Clinic to any friend or family. Dr. Wolfington is a great guy who treats you like family. And the staff is always so nice!"</p>
+            <p class="review-text">"They are so friendly and helpful, they made me feel so at home and comfortable. I would highly recommend Eau Gallie Medical Center to any friend or family. Dr. Wolfington is a great guy who treats you like family. And the staff is always so nice!"</p>
             <div class="review-author">
               <div class="review-avatar" style="background:linear-gradient(135deg,#0f65a3,#0a4875);">Z</div>
               <div>
@@ -1767,7 +1784,7 @@
         <button class="rev-dot" aria-label="Review 6"></button>
       </div>
       <br>
-      <a href="https://www.google.com/maps/place/Eau+Gallie+Medical+Center/@28.129832,-80.626493,16z" target="_blank" rel="noopener noreferrer" class="rev-google-link">
+      <a href="https://www.google.com/search?client=safari&hs=Lz5p&sca_esv=caf1a713ebbf1c53&hl=en-us&cs=0&q=eau+gallie+medical+center+reviews&uds=ALYpb_l3xOezYX_r-4giCkIJNC0yjAmw2eucvry3hIT-YHgyg8rBBxmpygvrmUmAMa8QxcKPE_7DNyf_VrDCXKjaAJLvfpEYRBBTxEP_LnX6EXtqaj7slzLH5m4tv7KOzed5Vzv6UnjuE2R4E8gOspO3q4hSZ_E3AX8BloB3A6RNJ9fwPEvVHjCnRIxpCXs6Jp_lJMq2LNKSZdnrVi0vxVpX0aXujJsor0A7g80by3BYFSy3WwFHeDLKNrdqrmVK6p-7Dz2EB1UM40z9LoV2c3EiCwMSDEcsluJomexSjnrLZFdiT5jFQjxOaWgGP-dlCoOqH76fUYtbktLrlztiLIQ8nULsdIIUBBEH02EXykq364hrTbXbnT0-ftb7E-UhhAm3a3gIJ_lTOipoK3faXoiu5TzzvodrJfWZBWPYLC7ftM4jocIJGEAt_jhZ_qlU5yBJzVxFiROEZX9s8La1dfXk9X8Pc3xcnT5NC0l3J-n3usgiY9YuLJc_7IOQDF3acpP_tJ2LhS1-Zd4OlQbGx3Vz9X6O8FgmdzUCuyTx_23UeX_ElBoCP2c&si=AL3DRZHrmvnFAVQPOO2Bzhf8AX9KZZ6raUI_dT7DG_z0kV2_x-S4stBDt3z5d7FoxEUW3ioA8eiXG2Ovn6mNBcNDLi_9JltIunC-FhTjWyCVXPfpDQJY-NvSCrHv8FrnOKBzk-mJIBZePsYkpJXiSAWPk32gZlyBkg%3D%3D&sa=X&ved=2ahUKEwiLwe-NlY-VAxVOQjABHdXCNlAQk8gLegQIHxAB&ictx=1" target="_blank" rel="noopener noreferrer" class="rev-google-link">
         <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><path fill="currentColor" d="M43.6 20.1H42V20H24v8h11.3C33.7 32.6 29.3 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.8 1.1 7.9 3l5.7-5.7C34.5 6.7 29.5 4 24 4 12.9 4 4 12.9 4 24s8.9 20 20 20 20-8.9 20-20c0-1.3-.1-2.6-.4-3.9z"/></svg>
         See all reviews on Google Maps
       </a>
@@ -1798,7 +1815,7 @@
         <div class="info-card">
           <h4>Location</h4>
           <address>
-            Eau Gallie Walk-In Clinic<br>
+            Eau Gallie Medical Center<br>
             1403 Highland Avenue<br>
             Melbourne, FL 32935
           </address>
@@ -1830,8 +1847,8 @@
         <p style="font-size:.88rem;color:var(--gray-500);line-height:1.65;margin-bottom:24px;">Prefer to reach out ahead of time? Fill out your details and reason for visit, and we'll get back to you. <strong>Walk-ins are still always preferred,</strong> this form is simply for those who'd like to connect first.</p>
         <form class="booking-form" onsubmit="handleBooking(event)" style="background:#fff;">
           <input type="hidden" name="access_key" value="83e41cdf-4d67-46c6-8f3f-75e5fdeb9268" />
-          <input type="hidden" name="subject" value="New message from Eau Gallie Walk-In Clinic website" />
-          <input type="hidden" name="from_name" value="Eau Gallie Walk-In Clinic Website" />
+          <input type="hidden" name="subject" value="New message from Eau Gallie Medical Center website" />
+          <input type="hidden" name="from_name" value="Eau Gallie Medical Center Website" />
           <input type="checkbox" name="botcheck" class="hidden" style="display:none" tabindex="-1" autocomplete="off" />
           <div class="form-row">
             <div class="form-group">
@@ -1890,7 +1907,7 @@
       </div>
       <div class="social-card-text">
         Facebook
-        <span>Eau Gallie Walk-In Clinic</span>
+        <span>Eau Gallie Medical Center</span>
       </div>
     </a>
     <a href="https://www.instagram.com/eaugallie.medicalcenter/" target="_blank" rel="noopener" class="social-card">
@@ -1914,7 +1931,7 @@
           <svg viewBox="0 0 24 24" fill="white"><circle cx="12" cy="12" r="4" opacity=".9"/><path d="M12 9v6M9 12h6" stroke="#0f65a3" stroke-width="2" fill="none"/></svg>
         </div>
         <div class="nav-logo-text">
-          <strong>Eau Gallie Walk-In Clinic</strong>
+          <strong>Eau Gallie Medical Center</strong>
           <span>Primary &amp; Urgent Care</span>
         </div>
       </a>
@@ -1955,7 +1972,7 @@
     </div>
   </div>
   <div class="footer-bottom">
-    <span>&copy; 2024 Eau Gallie Walk-In Clinic. All rights reserved.</span>
+    <span>&copy; 2024 Eau Gallie Medical Center. All rights reserved.</span>
     <span>This website is for informational purposes only and does not constitute medical advice.</span>
   </div>
 </footer>
@@ -1967,6 +1984,16 @@
 <button id="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">
   <svg viewBox="0 0 24 24"><path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"/></svg>
 </button>
+
+<!-- CREDENTIAL MODAL -->
+<div class="modal-overlay" id="cred-overlay" onclick="if(event.target===this)closeCred()">
+  <div class="modal" style="max-width:440px;" role="dialog" aria-modal="true" aria-labelledby="cred-modal-title">
+    <button class="modal-close" onclick="closeCred()" aria-label="Close">&times;</button>
+    <p class="section-label" style="margin-bottom:6px;">Credential Overview</p>
+    <h2 id="cred-modal-title" style="font-size:1.15rem;margin-bottom:14px;"></h2>
+    <div id="cred-modal-body" style="font-size:.9rem;color:var(--gray-700);line-height:1.7;"></div>
+  </div>
+</div>
 
 <!-- SERVICE DETAIL MODAL -->
 <div class="modal-overlay" id="svc-overlay" onclick="if(event.target===this)closeService()">
@@ -2099,7 +2126,7 @@
       tags: ['Phone or Video', 'No Travel', 'Same-Day', 'Prescriptions Sent Electronically'],
       body: `
         <h4>What is a telemedicine visit?</h4>
-        <p>A telemedicine visit is a <em>real</em> medical appointment — just done over video or phone instead of in person. You connect with Dr. Wolfington or Natalie Best from your phone, tablet, or computer. We can write prescriptions, order labs, and create your care plan entirely remotely. It's just as legitimate as sitting in the office.</p>
+        <p>A telemedicine visit is a <em>real</em> medical appointment — just done over video or phone instead of in person. You connect with Dr. Wolfington from your phone, tablet, or computer. We can write prescriptions, order labs, and create your care plan entirely remotely. It's just as legitimate as sitting in the office.</p>
         <h4>Great for...</h4>
         <ul>
           <li>Prescription refills and medication management</li>
@@ -2191,15 +2218,15 @@
         </ul>
         <h4>Who it's for</h4>
         <p>Anyone who wants to look more rested, address specific signs of aging, or improve their skin — in a judgment-free, professional setting. You don't need to look dramatically different. Most patients simply want to look like the best version of themselves.</p>
-        <p>Aesthetic procedures at our clinic are performed exclusively by <strong>Natalie Best</strong>, our dedicated aesthetics provider. She offers a warm, judgment-free environment and takes time to understand your goals before recommending any treatment.</p>
-        <p style="font-size:.85rem;color:var(--gray-500);">Appointment availability with Natalie is limited — but reaching out is always welcome. Call or text her directly to inquire.</p>
+        <p>Aesthetic procedures at our clinic are performed exclusively by <strong>Natalie Best, APRN-BC</strong> — an Advanced Practice Registered Nurse, Board Certified. APRN-BC is one of the highest levels of nursing credentialing: it requires a Master's or Doctoral degree, advanced clinical training, and passing rigorous national board certification exams in a specialty. This means Natalie can assess, diagnose, and treat at a medical level that non-certified or spa-based aestheticians cannot. She offers a warm, judgment-free environment and takes time to understand your goals before recommending any treatment.</p>
+        <p style="font-size:.85rem;color:var(--gray-500);">Appointment availability with Natalie is limited — but reaching out is always welcome. Email her directly at <a href="mailto:nbestaprn25@gmail.com" style="color:var(--teal);font-weight:600;">nbestaprn25@gmail.com</a> to inquire.</p>
         <div class="svc-price-box"><span>Xeomin</span><strong>$10/unit</strong></div>
         <div class="svc-price-box" style="margin-top:8px;"><span>Letybo</span><strong>$8/unit</strong></div>
         <div class="svc-price-box" style="margin-top:8px;"><span>Botox or Dysport</span><strong>$12/unit</strong></div>
         <div class="svc-price-box" style="margin-top:8px;"><span>Radiesse</span><strong>$550/syringe</strong></div>
         <div class="svc-price-box" style="margin-top:8px;"><span>Restylane Kysse</span><strong>$500/syringe</strong></div>
         <div class="svc-price-box" style="margin-top:8px;"><span>Versa</span><strong>$425/syringe</strong></div>
-        <p style="font-size:.8rem;color:var(--gray-500);margin-top:10px;">To schedule with Natalie Best, call or text <strong>(321) 361-7739</strong></p>`,
+        <p style="font-size:.8rem;color:var(--gray-500);margin-top:10px;">To schedule with Natalie Best, APRN-BC, email <a href="mailto:nbestaprn25@gmail.com" style="color:var(--teal);font-weight:600;">nbestaprn25@gmail.com</a></p>`,
     },
     'peptides': {
       label: 'Peptide Therapy',
@@ -2357,6 +2384,36 @@
     }
   }
 
+  // ── Credential Modal ──
+  const CREDS = {
+    'do': {
+      title: 'DO — Doctor of Osteopathic Medicine',
+      body: `<p>A Doctor of Osteopathic Medicine (DO) is a fully licensed physician with the same rights as an MD — including the ability to diagnose, treat, prescribe medications, and perform procedures in all 50 states.</p><p>DOs complete four years of medical school followed by residency training, identical in rigor to an MD program. What distinguishes a DO is additional training in osteopathic manipulative medicine (OMM) and a whole-body philosophy that treats the patient as a whole rather than focusing solely on isolated symptoms — emphasizing preventive care and the relationship between the body's systems.</p>`
+    },
+    'aprn': {
+      title: 'APRN-BC — Advanced Practice Registered Nurse, Board Certified',
+      body: `<p>An APRN-BC has completed a Master's or Doctoral degree in nursing beyond their RN license, plus advanced clinical training in a chosen specialty. "Board Certified" means they have passed rigorous national certification exams and meet the highest professional standards in their field.</p><p>APRNs hold the authority to independently diagnose conditions, develop treatment plans, and prescribe medications — a clinical level that exceeds a standard registered nurse or non-medical practitioner. In aesthetics specifically, this means the ability to properly assess your health, administer injectables safely, and provide medical-grade care backed by advanced training.</p>`
+    },
+    'lpn': {
+      title: 'LPN — Licensed Practical Nurse',
+      body: `<p>A Licensed Practical Nurse (LPN) is a licensed healthcare professional who has completed a state-approved nursing program and passed the NCLEX-PN national licensing examination.</p><p>LPNs provide direct, hands-on patient care — including taking vital signs, administering medications, wound care, patient education, and supporting physicians throughout clinical visits. They are a foundational part of any care team, ensuring every patient receives attentive, skilled, and compassionate attention from the moment they arrive.</p>`
+    }
+  };
+  function openCred(id) {
+    const c = CREDS[id];
+    if (!c) return;
+    document.getElementById('cred-modal-title').textContent = c.title;
+    document.getElementById('cred-modal-body').innerHTML = c.body;
+    document.getElementById('cred-overlay').classList.add('open');
+    document.body.style.overflow = 'hidden';
+    setTimeout(() => document.querySelector('#cred-overlay .modal-close').focus(), 50);
+  }
+  function closeCred() {
+    document.getElementById('cred-overlay').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeCred(); });
+
   // ── Reviews Carousel ──
   (function () {
     const track = document.getElementById('reviewsTrack');
@@ -2401,3 +2458,4 @@
 </script>
 </body>
 </html>
+
