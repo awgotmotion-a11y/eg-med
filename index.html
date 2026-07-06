@@ -802,28 +802,51 @@
       font-size: .92rem;
       margin-bottom: 32px;
     }
-    .social-cards {
+    .social-feeds {
       display: flex;
-      gap: 20px;
+      gap: 28px;
       justify-content: center;
       flex-wrap: wrap;
+      align-items: flex-start;
     }
-    .social-card {
+    .social-feed-col {
+      background: rgba(255,255,255,.05);
+      border: 1px solid rgba(255,255,255,.13);
+      border-radius: var(--radius);
+      padding: 22px;
+      width: 380px;
+      max-width: 100%;
+    }
+    .social-feed-header {
       display: flex;
       align-items: center;
       gap: 14px;
-      background: rgba(255,255,255,.07);
-      border: 1px solid rgba(255,255,255,.13);
-      border-radius: var(--radius);
-      padding: 18px 28px;
       text-decoration: none;
       color: #fff;
       font-weight: 600;
       font-size: .95rem;
-      transition: background .2s, transform .18s, border-color .2s;
-      min-width: 220px;
+      margin-bottom: 18px;
+      transition: opacity .2s;
     }
-    .social-card:hover { background: rgba(255,255,255,.14); transform: translateY(-3px); border-color: rgba(255,255,255,.28); }
+    .social-feed-header:hover { opacity: .78; }
+    .social-feed-embed {
+      display: flex;
+      justify-content: center;
+      min-height: 200px;
+    }
+    .social-feed-fallback {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      gap: 14px;
+      text-align: center;
+      padding: 28px 12px 8px;
+    }
+    .social-feed-fallback p {
+      color: rgba(255,255,255,.6);
+      font-size: .82rem;
+      margin: 0;
+    }
     .social-icon {
       width: 46px; height: 46px; border-radius: 12px;
       display: flex; align-items: center; justify-content: center;
@@ -834,9 +857,6 @@
     .social-icon.instagram { background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285aeb 90%); }
     .social-card-text { text-align: left; }
     .social-card-text span { display: block; font-size: .75rem; color: rgba(255,255,255,.55); font-weight: 400; margin-top: 2px; }
-    @media (max-width: 520px) {
-      .social-card { min-width: 0; width: 100%; }
-    }
 
     /* ── PHOTO GALLERY SECTION ── */
     .photo-section {
@@ -1553,7 +1573,7 @@
 
       <div class="team-card">
         <div class="team-avatar">
-          <svg viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+          <img src="Grok Image 2026-07-05 at 17.12.18.png" alt="Dr. Michael Wolfington" style="width:100%;height:100%;object-fit:cover;">
         </div>
         <div class="team-info">
           <h3>Dr. Michael Wolfington <span class="cred-sep">|</span> DO</h3>
@@ -1888,25 +1908,58 @@
   <span class="section-label">Follow Us</span>
   <h2>Stay Connected</h2>
   <p>Follow us on social media for health tips, clinic updates, and more.</p>
-  <div class="social-cards">
-    <a href="https://www.facebook.com/share/1BobjFMTT6/?mibextid=wwXIfr" target="_blank" rel="noopener" class="social-card">
-      <div class="social-icon facebook">
-        <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+  <div class="social-feeds">
+
+    <div class="social-feed-col">
+      <a href="https://www.facebook.com/p/Eau-Gallie-Medical-Center-100094167091849/" target="_blank" rel="noopener" class="social-feed-header">
+        <div class="social-icon facebook">
+          <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+        </div>
+        <div class="social-card-text">
+          Facebook
+          <span>Eau Gallie Medical Center</span>
+        </div>
+      </a>
+      <div class="social-feed-embed">
+        <div id="fb-root"></div>
+        <div class="fb-page"
+          data-href="https://www.facebook.com/p/Eau-Gallie-Medical-Center-100094167091849/"
+          data-tabs="timeline"
+          data-width="336"
+          data-height="500"
+          data-small-header="true"
+          data-adapt-container-width="true"
+          data-hide-cover="false"
+          data-show-facepile="false">
+          <blockquote cite="https://www.facebook.com/p/Eau-Gallie-Medical-Center-100094167091849/" class="fb-xfbml-parse-ignore">
+            <a href="https://www.facebook.com/p/Eau-Gallie-Medical-Center-100094167091849/">Eau Gallie Medical Center</a>
+          </blockquote>
+        </div>
       </div>
-      <div class="social-card-text">
-        Facebook
-        <span>Eau Gallie Medical Center</span>
+      <div class="social-feed-fallback" id="fb-feed-fallback">
+        <p>Your browser's privacy settings are blocking the live preview.</p>
+        <a href="https://www.facebook.com/p/Eau-Gallie-Medical-Center-100094167091849/" target="_blank" rel="noopener" class="btn-outline">View Our Facebook Page &rarr;</a>
       </div>
-    </a>
-    <a href="https://www.instagram.com/eaugalliemedicalcenter/" target="_blank" rel="noopener" class="social-card">
-      <div class="social-icon instagram">
-        <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5" fill="none" stroke="#fff" stroke-width="2"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" fill="none" stroke="#fff" stroke-width="2"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg>
+    </div>
+
+    <div class="social-feed-col">
+      <a href="https://www.instagram.com/eaugalliemedicalcenter/" target="_blank" rel="noopener" class="social-feed-header">
+        <div class="social-icon instagram">
+          <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5" fill="none" stroke="#fff" stroke-width="2"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" fill="none" stroke="#fff" stroke-width="2"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg>
+        </div>
+        <div class="social-card-text">
+          Instagram
+          <span>@eaugalliemedicalcenter</span>
+        </div>
+      </a>
+      <div class="social-feed-embed">
+        <!-- To feature another post, copy this blockquote and swap the data-instgrm-permalink URL -->
+        <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/ClEg_eGJcE1/" data-instgrm-version="14" style="width:100%;max-width:336px;margin:0;">
+          <a href="https://www.instagram.com/p/ClEg_eGJcE1/" target="_blank" rel="noopener">View this post on Instagram</a>
+        </blockquote>
       </div>
-      <div class="social-card-text">
-        Instagram
-        <span>@eaugalliemedicalcenter</span>
-      </div>
-    </a>
+    </div>
+
   </div>
 </section>
 
@@ -2404,6 +2457,18 @@
     resetAuto();
   }());
 </script>
+
+<!-- Facebook Page Plugin + Instagram embed (power the live "Stay Connected" feeds) -->
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v19.0"></script>
+<script async src="https://www.instagram.com/embed.js"></script>
+<script>
+  setTimeout(function () {
+    var fbPage = document.querySelector('.fb-page');
+    var fallback = document.getElementById('fb-feed-fallback');
+    if (fallback && (!fbPage || !fbPage.querySelector('iframe'))) {
+      fallback.style.display = 'flex';
+    }
+  }, 3000);
+</script>
 </body>
 </html>
-
