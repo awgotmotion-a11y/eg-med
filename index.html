@@ -425,11 +425,6 @@
     /* scrolled nav */
     .nav.scrolled { box-shadow: 0 4px 24px rgba(10,37,64,.14); }
 
-    .cred-sep {
-      color: var(--gray-200); font-weight: 300;
-      margin: 0 4px; font-size: 1em;
-    }
-
     /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
        PROFESSIONAL POLISH
     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
@@ -696,6 +691,23 @@
     #svc-overlay .modal::-webkit-scrollbar { width: 4px; }
     #svc-overlay .modal::-webkit-scrollbar-thumb { background: var(--teal); border-radius: 2px; }
     .modal h2 { margin-bottom: 4px; }
+
+    /* ── NATALIE BIO MODAL ── */
+    #natalie-overlay .modal { max-width: 760px; max-height: 88vh; overflow-y: auto; scroll-behavior: smooth; }
+    #natalie-overlay .modal::-webkit-scrollbar { width: 4px; }
+    #natalie-overlay .modal::-webkit-scrollbar-thumb { background: var(--teal); border-radius: 2px; }
+    .natalie-modal-body { display: flex; gap: 28px; align-items: flex-start; }
+    .natalie-modal-img {
+      flex: 0 0 200px; width: 200px; border-radius: 12px;
+      overflow: hidden; background: var(--gray-100);
+    }
+    .natalie-modal-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .natalie-modal-text { flex: 1; min-width: 0; }
+    .natalie-modal-text p { color: var(--gray-700); font-size: .9rem; line-height: 1.75; margin-bottom: 14px; }
+    @media (max-width: 640px) {
+      .natalie-modal-body { flex-direction: column; }
+      .natalie-modal-img { width: 100%; max-width: 220px; margin: 0 auto; }
+    }
 
     /* ── RESPONSIVE EXTRAS ── */
     @media (max-width: 600px) {
@@ -1576,7 +1588,7 @@
           <img src="photo3.png" alt="Dr. Michael Wolfington" style="width:100%;height:100%;object-fit:cover;object-position:center top;">
         </div>
         <div class="team-info">
-          <h3>Dr. Michael Wolfington <span class="cred-sep">|</span> DO</h3>
+          <h3>Dr. Michael Wolfington</h3>
           <div class="role">Medical Director &amp; Physician</div>
           <p>Dr. Wolfington leads Eau Gallie Medical Center and personally handles all primary care, urgent care, MAT, weight loss, peptide therapy, medical marijuana certifications, physicals, lab orders, and minor procedures. Simply walk in — no appointment needed.</p>
           <a href="#contact" class="team-book">Hours &amp; Location &rarr;</a>
@@ -1588,11 +1600,11 @@
           <img src="photo2-2.png" alt="Natalie Best" style="width:100%;height:100%;object-fit:cover;object-position:center top;">
         </div>
         <div class="team-info">
-          <h3>Natalie Best <span class="cred-sep">|</span> APRN-BC</h3>
+          <h3>Natalie Best</h3>
           <div class="role">Aesthetics Provider</div>
           <p>Natalie specializes exclusively in aesthetic procedures at our clinic. She brings a careful, artistic approach to every treatment and is passionate about helping patients feel confident.</p>
           <p style="font-size:.85rem; color:var(--gray-700); margin-top:10px; line-height:1.65;"><strong>Muscle Relaxers:</strong> Xeomin ($10/unit), Letybo ($8/unit), Botox or Dysport ($12/unit)<br><strong>Fillers &amp; Volumizers:</strong> Radiesse ($550/syringe), Restylane Kysse ($500/syringe), Versa ($425/syringe)</p>
-          
+          <button type="button" class="team-book" style="width:100%;border:none;cursor:pointer;font-family:inherit;" onclick="openNatalie()">Learn More About Natalie &rarr;</button>
         </div>
       </div>
 
@@ -1601,7 +1613,7 @@
           <img src="photo1.png" alt="Kim Wilson" style="width:100%;height:100%;object-fit:cover;object-position:center top;">
         </div>
         <div class="team-info">
-          <h3>Kim Wilson <span class="cred-sep">|</span> LPN</h3>
+          <h3>Kim Wilson</h3>
           <div class="role">Front Desk Coordinator</div>
           <p>Kim is the first voice you'll hear when you call Eau Gallie Medical Center. She manages all incoming calls, coordinates appointments, and makes sure every patient feels welcomed and taken care of from the very first interaction. Whether you have a question about services, need to arrange a visit, or just aren't sure where to start — Kim will point you in the right direction and get you set up.</p>
           <a href="tel:+13217511414" class="team-book">Call Kim: (321) 751-1414</a>
@@ -2042,6 +2054,24 @@
   </div>
 </div>
 
+<!-- NATALIE BIO MODAL -->
+<div class="modal-overlay" id="natalie-overlay" onclick="if(event.target===this)closeNatalie()">
+  <div class="modal" id="natalie-modal" role="dialog" aria-modal="true" aria-labelledby="natalie-modal-title">
+    <button class="modal-close" onclick="closeNatalie()" aria-label="Close">&times;</button>
+    <div class="natalie-modal-body">
+      <div class="natalie-modal-img">
+        <img src="photo2-2.png" alt="Natalie Best">
+      </div>
+      <div class="natalie-modal-text">
+        <p class="section-label" style="margin-bottom:4px;">Aesthetics Provider</p>
+        <h2 id="natalie-modal-title">Natalie Best, APRN-BC</h2>
+        <p>Natalie brings more than 30 years of nursing experience and nearly 20 years of specialization in aesthetics and wellness to Eau Gallie Medical Center. After returning to school to earn her master's degree, she became a board-certified Family Nurse Practitioner in 2025. Her aesthetic background includes working alongside plastic surgeons in both California and Florida. She received extensive training in cosmetic injectables from respected plastic surgeon Dr. Victoria Vitale-Lewis, with whom she worked for several years, and later continued her aesthetic work with plastic surgeon Dr. Michael Diaz.</p>
+        <p>As Eau Gallie Medical Center's dedicated aesthetic injector, Natalie works alongside Dr. Michael Wolfington to provide personalized treatments designed to produce refreshed, balanced, and natural-looking results. Her services include wrinkle-relaxing injections, with Xeomin as her preferred option, as well as dermal fillers including Radiesse, Restylane Kysse, and Revanesse Versa. Natalie takes the time to understand each patient's goals, explain available options, and develop a conservative treatment plan focused on safety and enhancing—not changing—the patient's natural features. Aesthetic services and product availability are available on select days by appointment only. Please email her directly at <a href="mailto:nbestaprn25@gmail.com" style="color:var(--teal);font-weight:700;">nbestaprn25@gmail.com</a> or call the office for further assistance.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
 <!-- SCRIPTS -->
 <script>
   // Nav scroll shadow + back-to-top visibility
@@ -2372,7 +2402,20 @@
     document.body.style.overflow = '';
   }
 
-  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeService(); });
+  function openNatalie() {
+    const overlay = document.getElementById('natalie-overlay');
+    overlay.classList.add('open');
+    document.body.style.overflow = 'hidden';
+    document.getElementById('natalie-modal').scrollTop = 0;
+    setTimeout(() => document.querySelector('#natalie-modal .modal-close').focus(), 50);
+  }
+
+  function closeNatalie() {
+    document.getElementById('natalie-overlay').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') { closeService(); closeNatalie(); } });
 
   // Booking form
   async function handleBooking(e) {
