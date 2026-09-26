@@ -1,0 +1,18 @@
+# HTTP security & privacy headers for eaumed.com.
+# Applied automatically by Cloudflare Pages and Netlify (this file's format). GitHub Pages ignores it:
+# on GitHub Pages, tick "Enforce HTTPS" and set these via a proxy (e.g. Cloudflare free tier,
+# Rules > Transform Rules > Modify Response Header).
+#
+# Every origin below is 'self': fonts, scripts, images and the 3D model are all served from this
+# site, and the site has no forms, analytics, embeds or trackers. blob: is the in-memory copy of the
+# 3D model. 'unsafe-inline' covers one inline line (<script>…classList.add('js')</script>) and the
+# inline style attributes of the hours chart; nothing needs 'unsafe-eval'.
+# Deploy once as Content-Security-Policy-Report-Only and check the console before enforcing.
+/*
+  Strict-Transport-Security: max-age=31536000; includeSubDomains
+  Content-Security-Policy: default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'none'; form-action 'none'; img-src 'self' data: blob:; style-src 'self' 'unsafe-inline'; font-src 'self'; script-src 'self' 'unsafe-inline'; worker-src 'self' blob:; connect-src 'self' blob:; upgrade-insecure-requests
+  Referrer-Policy: no-referrer
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=(), usb=(), browsing-topics=()
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: DENY
+  Cross-Origin-Opener-Policy: same-origin
